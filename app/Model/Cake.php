@@ -2,14 +2,13 @@
 class Cake extends AppModel{
 
 	public $validate = [
-		"name" => [
+		"title" => [
 			"rule" => "alphaNumeric",
-			"required" => true,
-			"message" => "only alphanumeric characters"
+			"message" => "solo numeros o letras"
 		],
-		"lastName" => [
+		"flavor" => [
 			"rule" => "alphaNumeric",
-			"required" => true
+			"message" => "solo numeros o letras"
 		]
 	];
 }
