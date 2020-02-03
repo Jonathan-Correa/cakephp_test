@@ -3,11 +3,11 @@ class Cake extends AppModel{
 
 	public $validate = [
 		"title" => [
-			"rule" => "alphaNumeric",
+			"rule" => "notBlank",
 			"message" => "solo numeros o letras"
 		],
 		"flavor" => [
-			"rule" => "alphaNumeric",
+			"rule" => "notBlank",
 			"message" => "solo numeros o letras"
 		]
 	];

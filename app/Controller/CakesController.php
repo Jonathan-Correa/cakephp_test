@@ -4,13 +4,6 @@ class CakesController extends AppController{
  public $helpers = array("Html", 'Form');
  public $components = array('Flash');
 
-	public $users = [
-		"user1" => [
-			"nombre" => "jonathan",
-			"apellido" => "correa"
-		]
-	];
-
 	public function index(){
 
 		$this->set('cakes', $this->Cake->find("all"));
@@ -34,9 +27,6 @@ class CakesController extends AppController{
 
 		$cake = $this->Cake->findById($id);
 
-		$this->set('cake', $cake);
-
-
 		if(!$cake){
 			throw new Exception('El id no se encuentra en nuestros registros');
 		}
@@ -50,6 +40,10 @@ class CakesController extends AppController{
 			}
 
 			return $this->Flash->error('no se pudo editar el cake');
+		}
+
+		if (!$this->request->data) {
+			$this->request->data = $cake;
 		}
 
 	}
