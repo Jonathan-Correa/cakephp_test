@@ -1,12 +1,21 @@
 <?php
 class CakesController extends AppController{
 
- public $helpers = array("Html", 'Form');
- public $components = array('Flash');
+	public $helpers = array("Html", 'Form');
+	public $components = array('Flash', 'Paginator');
+
+	public $paginate = [
+		'limit' => 3,
+        'order' => array(
+            'Cake.id' => 'asc'
+        )
+	];
 
 	public function index(){
-
-		$this->set('cakes', $this->Cake->find("all"));
+		$this->Cake->recursive = 0;
+		$this->Paginator->settings = $this->paginate;
+		$cakes = $this->Paginator->paginate();
+		$this->set('cakes', $cakes);
 	}
 
 	public function add(){

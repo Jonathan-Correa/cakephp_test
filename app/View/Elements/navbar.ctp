@@ -6,9 +6,25 @@
 
   <ul class="navbar-nav mr-auto">
     <li class="nav-item">
+      <a>
+        <?php echo $this->Html->Link('Home', array('controller' => "Home", "action" => 'index'), array('class' => "nav-link")); ?>
+      </a>
+    </li>
+    <li class="nav-item">
         <a> 
             <?php echo $this->Html->Link('Cakes', array('controller' => "cakes", "action" => "index"), array('class' => "nav-link")); ?>
         </a>
+    </li>
+  </ul>
+
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item">
+      <a>
+        <?php echo $this->Html->Link('Sign Up', array('controller' => "Users", "action" => "signup"), array('class' => "nav-link")); ?>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a>Sign In</a>
     </li>
   </ul>
 
