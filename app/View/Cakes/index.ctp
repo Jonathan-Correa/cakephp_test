@@ -20,8 +20,11 @@
                 <td> <?php echo $cake["Cake"]["title"] ?> </td>
                 <td> <?php echo $cake["Cake"]["flavor"] ?> </td>
                 <td> 
-                    <?php echo $this->Html->Link('edit', ["action" => "edit", $cake["Cake"]["id"]], array('class' => 'btn btn-secondary')); ?>
-                    <?php echo $this->Form->postLink('delete', ["action" => "delete", $cake["Cake"]["id"]], array('class' => 'btn btn-secondary')); ?>
+                    <?php echo $this->Html->Link('edit', array("action" => "edit", $cake["Cake"]["id"]), array('class' => 'btn btn-secondary')); ?>
+                    <?php echo $this->Form->postLink('delete', 
+                      array("action" => "delete", $cake["Cake"]["id"]), 
+                      array('class' => 'btn btn-secondary'), 
+                      array('confirm' => "¿desea eliminar este cake?")); ?>
                 </td>
                 </tr>
         <?php endforeach; ?>
@@ -30,18 +33,16 @@
 
     <nav>
           <ul class="pagination">
-            <li class="page-item">
+            <li class="btn btn-secondary page-link">
               <?php echo $this->Paginator->prev("previous", array('tag' => false), null, array('class' => "prev disabled")); ?>
             </li>
-
-            <?php echo $this->Paginator->numbers(array('separator' => "", "tag" => "li", "currentTag" => "a", "currentClass" => "active")); ?>              
-             
-            <li class="page-item">
+              
+              <?php echo $this->Paginator->numbers(array('separator' => "", "tag" => "button"), array('class' => "btn btn-light")); ?>            
+            <li class="btn btn-secondary page-link">
                 <?php echo $this->Paginator->next("next", array('tag' => false), null, array('class' => "next disabled")); ?>              
             </li>
           </ul>
     </nav>
-
   </div>
 </div>
 

@@ -5,7 +5,7 @@ class CakesController extends AppController{
 	public $components = array('Flash', 'Paginator');
 
 	public $paginate = [
-		'limit' => 3,
+		'limit' => 5,
         'order' => array(
             'Cake.id' => 'asc'
         )
