@@ -14,7 +14,7 @@
  * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
-$cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework');
+$cakeDescription = __d('cake_dev', 'CakePHP2 Test');
 $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 ?>
 <!DOCTYPE html>
@@ -28,7 +28,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 	<?php
 		echo $this->Html->meta('icon');
 
-		echo $this->Html->css('bootstrap.min.css');
+		echo $this->Html->css(array('bootstrap.min.css', "styles.css"));
 		echo $this->Html->script(array('jquery-3.4.1.min.js', 'bootstrap.min.js'));
 
 		echo $this->fetch('meta');

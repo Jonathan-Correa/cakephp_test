@@ -1,9 +1,7 @@
 <?php
 class CakesController extends AppController{
 
-	public $helpers = array("Html", 'Form');
-	public $components = array('Flash', 'Paginator');
-
+	
 	public $paginate = [
 		'limit' => 5,
         'order' => array(
@@ -22,8 +20,9 @@ class CakesController extends AppController{
 
 		if($this->request->is('post')){
 			if($this->Cake->save($this->request->data)){
-				$this->Flash->success('Your cake has been created');
+				$this->Session->setFlash("the cake has been created", $element = 'default', $params = array("class" => "alert alert-success"));
 				return $this->redirect(["action" => "index"]);
+
 			}
 		}
 	}
@@ -44,11 +43,11 @@ class CakesController extends AppController{
 
 			$this->Cake->id = $id;
 			if($this->Cake->save($this->request->data)){
-				$this->Flash->success('Cake editado');
+				$this->Session->setFlash('Cake editado', $element = 'default', $params = array("class" => "alert alert-success"));
 				return $this->redirect(["action" => "index"]);
 			}
 
-			return $this->Flash->error('no se pudo editar el cake');
+			return $this->Session->setFlash('no se pudo editar el cake', $element = 'default', $params = array("class" => "alert alert-danger"));
 		}
 
 		if (!$this->request->data) {
@@ -64,7 +63,7 @@ class CakesController extends AppController{
 			throw new MethodNotAllowedException();
 		}
 		if ($this->Cake->delete($id)) {
-			$this->Flash->success('The cake with id: ' . $id . ' has been deleted.');
+			$this->Session->setFlash('The cake with id: ' . $id . ' has been deleted.', $element = 'default', $params = array("class" => "alert alert-success"));
 			$this->redirect(array('action' => 'index'));
 		}
 	}
