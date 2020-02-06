@@ -3,7 +3,7 @@ class CakesController extends AppController{
 
 	
 	public $paginate = [
-		'limit' => 5,
+		'limit' => 6,
         'order' => array(
             'Cake.id' => 'asc'
         )

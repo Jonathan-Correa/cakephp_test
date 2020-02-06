@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-4 mx-center">
+    <div class="col-md-4 mx-auto">
         <div class="card">
             <div class="card-head text-center">
                 <h3>Sign Up!</h3>
@@ -15,7 +15,7 @@
                     <?php echo $this->Form->input('password', array("class" => "form-control")); ?>
                 </div>
                 <div class="form-group">
-                    <?php echo $this->Form->end('send', array("class" => "btn btn-submit")); ?>
+                    <button type="submit" class="btn btn-success">Enviar!</button>
                 </div>
             </div>
         </div>
